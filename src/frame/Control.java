@@ -68,6 +68,9 @@ public class Control extends JFrame {
     private void intitiateTable() {
         this.settingTable = new JTable(data, columnNames);
         this.add(settingTable);
+
+        this.setBounds(20, 20, 300, 150);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
 

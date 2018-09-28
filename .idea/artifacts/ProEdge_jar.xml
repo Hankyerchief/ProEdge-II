@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ProEdge:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProEdge_jar</output-path>
+    <root id="archive" name="ProEdge.jar">
+      <element id="module-output" name="ProEdge" />
+    </root>
+  </artifact>
+</component>
