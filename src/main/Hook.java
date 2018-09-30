@@ -1,7 +1,10 @@
 package main;
 
-import frame.Control;
+import frame.SettingControl;
 import utils.Settings;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Hook {
 
@@ -10,6 +13,13 @@ public class Hook {
         //Initiate Settings
         Settings.retrieve().load(null);
 
-        Control control = new Control();
+        SettingControl frame = new SettingControl();
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
     }
+
 }
+

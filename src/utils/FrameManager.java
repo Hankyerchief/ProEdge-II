@@ -1,12 +1,13 @@
 package utils;
 
 import javax.swing.*;
+import java.awt.event.WindowEvent;
 import java.util.HashMap;
 
 public class FrameManager {
 
     private static FrameManager manager;
-    static HashMap<String, JFrame> frames = null;
+    private static HashMap<String, JFrame> frames = null;
 
    public static FrameManager getManager() {
 
@@ -20,9 +21,18 @@ public class FrameManager {
        return manager;
    }
 
-   public void addToMap(String framename, JFrame frame) {
+   public void addToMap(String label, JFrame frame) {
 
-       frames.put(framename, frame);
+       frames.put(label, frame);
+   }
+
+   public void closeFrame(String label) {
+       if(frames.containsKey(label)) {
+           JFrame frame = frames.get(label);
+
+           //Close the window
+           frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+       }
    }
 }
 

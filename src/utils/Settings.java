@@ -26,31 +26,13 @@ public class Settings {
         return settings;
     }
 
-    //Load all settings or reload a certian setting.
-    public boolean load (String setting) {
+    //Load all settings or reload a certain setting.
+    public void load (String setting) {
 
         //Checks if the input is null, if so it loads all settings to default
         if (setting == null) {
             setSettingsDefault();
         }
-
-        //Attempt to reload a particular setting
-        if(setting != null) {
-
-            //If it loads the setting, we update the UI with the new value.
-            if (settingMap.containsKey(setting)) {
-                //update the ui, to be built later
-            }
-
-            else {
-
-                //Eventually printed out in a console window.
-                System.out.println("Setting Not Valid.");
-                return false;
-            }
-        }
-
-        return true;
 
     }
 
@@ -95,7 +77,6 @@ public class Settings {
             return settingMap.get(set);
         }
 
-        //uh oh no bueno
         return null;
     }
 
@@ -118,5 +99,17 @@ public class Settings {
         }
 
         return "On";
+    }
+
+    public void reverseSetting(String setting) {
+        if(!Boolean.valueOf((boolean)getSetting(setting))) {
+            settingMap.put(setting, true);
+        }
+
+        else {
+            settingMap.put(setting, false);
+        }
+
+        load(setting);
     }
 }
